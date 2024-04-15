@@ -20,6 +20,7 @@ fun analyse() {
 }
 
 fun getFilesByPath(path: String, predicate: (File) -> Boolean = { true }): List<File> {
+    var http=null
     var file = File(path).walk().asStream().parallel()
         .filter { it.isFile }
         .filter { predicate(it) }
